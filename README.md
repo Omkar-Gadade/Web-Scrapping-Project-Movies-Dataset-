@@ -7,7 +7,7 @@ Extracting Top Lifetime Grossing Movies Table From BoxOfficeMojo Website and sav
 
 ## Python Libraries Used :-
 1. Beautiful Soup (bs4) - For Parsing HTML Document
-2. Requests - For Grabbbing HTML content from URL
+2. Requests - For Grabbing HTML content from URL
 3. Openpyxl - To create active worksheet from Workbook for exporting the extracted data
 
 ## Website used:-

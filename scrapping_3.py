@@ -1,0 +1,51 @@
+# Importing appropriate modules
+from bs4 import BeautifulSoup
+import requests
+from openpyxl import Workbook
+
+# Creating workbook
+wb = Workbook()
+
+# Selecting active worksheet
+ws = wb.active
+
+# Adding column headers
+ws.append(["Rank", "Title", "Lifetime Gross", "Year"])
+
+# Getting hold of response in HTMl format from boxofficemojo website url
+url = "https://www.boxofficemojo.com/chart/top_lifetime_gross/?area=XWW"
+response = requests.get(url)
+
+
+# Converting response to text format and storing in contents variable
+contents = response.text
+
+
+# Using beautifulsoup to parse contents by using "html parser" and then storing it in soup variable.
+soup = BeautifulSoup(contents, 'html.parser')
+
+
+# Parsing the entire HTML DocType to find 'td' i.e. Table Data tags and filtering them by class_
+rank_td = soup.find_all('td', class_='mojo-field-type-rank')
+title_td = soup.find_all('td', class_='mojo-field-type-title')
+lifetime_gross_td = soup.find_all('td', class_='mojo-field-type-money')
+year_td = soup.find_all('td', class_='mojo-field-type-year')
+
+
+
+# Making use of FOR loop to iterate through the td tags and grabbing appropriate text from each element
+for rank, title, lifetime_gross, year in zip(rank_td, title_td, lifetime_gross_td, year_td):
+    # Extracting the text content from each element
+    rank_text = rank.get_text(strip=True)
+    title_text = title.get_text(strip=True)
+    lifetime_gross_text = lifetime_gross.get_text(strip=True)
+    year_text = year.get_text(strip=True)
+
+    # appending all the data in ws created earlier with headers
+    ws.append([rank_text, title_text, lifetime_gross_text, year_text])
+
+
+
+
+# Finally saving the wb as "movies_data_scrapping_project.xlsx"
+wb.save("movie_data_scrapping_project.xlsx")

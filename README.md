@@ -2,8 +2,8 @@
 Extracting Top Lifetime Grossing Movies Table From BoxOfficeMojo Website and saving them in active Excel Worksheet.
 
 ## Tools Used :-
-1. Pycharm Comunity Edition
-2. Microsoft Excel Worksheet
+1. Pycharm Community Edition (.py) (Integrated Development Environment IDE)
+2. Microsoft Excel Worksheet (XLSX)
 
 ## Python Libraries Used :-
 1. Beautiful Soup (bs4) - For Parsing HTML Document

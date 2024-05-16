@@ -15,5 +15,5 @@ Box Office Mojo Website :- "https://www.boxofficemojo.com/chart/top_lifetime_gro
 
 ## Files Description:-
 1. Web_Scrapping_Project_Python_Code.txt = Text file containing Python Code with explaination
-2. Scrapping_3.py = Python File (.py) requires PyCharm to open and read.
+2. Scrapping_3.py = Python File (.py) 
 3. movies_data_scrapping_project.xlsx = Microsoft Excel Worksheet where Data is saved.
